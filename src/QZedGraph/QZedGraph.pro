@@ -14,8 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    pointd.cpp \
-    qzedgraphtypes.cpp
+    pointd.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
