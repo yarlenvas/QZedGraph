@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     pointd.cpp \
     label.cpp \
     margin.cpp \
-    margindefaults.cpp
+    margindefaults.cpp \
+    fill.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
     qzedenums.h \
     label.h \
     margin.h \
-    margindefaults.h
+    margindefaults.h \
+    fill.h
 
 FORMS    += mainwindow.ui
