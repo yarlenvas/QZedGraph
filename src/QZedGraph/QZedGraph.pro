@@ -18,6 +18,6 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     pointd.h \
-    qzedgraphtypes.h
+    qzedenums.h
 
 FORMS    += mainwindow.ui

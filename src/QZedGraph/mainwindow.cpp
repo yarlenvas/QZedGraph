@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <qzedgraphtypes.h>
+
+#include "qzedenums.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
 
-    QZedTypes::AxisType axType = QZedTypes::Linear;
+    QZedAxisTypes::AxisType axType = QZedAxisTypes::Linear;
 
     ui->setupUi(this);
 }

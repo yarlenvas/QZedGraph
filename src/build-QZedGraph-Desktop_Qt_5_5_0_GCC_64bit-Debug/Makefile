@@ -194,7 +194,7 @@ DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/yarlen/Qt/5.5/gcc_64/mkspecs/features/lex.prf \
 		../QZedGraph/QZedGraph.pro ../QZedGraph/mainwindow.h \
 		../QZedGraph/pointd.h \
-		../QZedGraph/qzedgraphtypes.h ../QZedGraph/main.cpp \
+		../QZedGraph/qzedenums.h ../QZedGraph/main.cpp \
 		../QZedGraph/mainwindow.cpp \
 		../QZedGraph/pointd.cpp
 QMAKE_TARGET  = QZedGraph
@@ -524,7 +524,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedgraphtypes.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedenums.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../QZedGraph/main.cpp ../QZedGraph/mainwindow.cpp ../QZedGraph/pointd.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QZedGraph/mainwindow.ui $(DISTDIR)/
 
@@ -939,7 +939,7 @@ mainwindow.o: ../QZedGraph/mainwindow.cpp ../QZedGraph/mainwindow.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QToolBar \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qtoolbar.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QWidget \
-		../QZedGraph/qzedgraphtypes.h
+		../QZedGraph/qzedenums.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../QZedGraph/mainwindow.cpp
 
 pointd.o: ../QZedGraph/pointd.cpp ../QZedGraph/pointd.h
