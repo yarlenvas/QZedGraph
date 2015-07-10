@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    pointd.cpp
+    pointd.cpp \
+    label.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
-    qzedenums.h
+    qzedenums.h \
+    label.h
 
 FORMS    += mainwindow.ui

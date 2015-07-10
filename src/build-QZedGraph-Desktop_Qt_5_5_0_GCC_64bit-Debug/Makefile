@@ -50,10 +50,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../QZedGraph/main.cpp \
 		../QZedGraph/mainwindow.cpp \
-		../QZedGraph/pointd.cpp moc_mainwindow.cpp
+		../QZedGraph/pointd.cpp \
+		../QZedGraph/label.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		pointd.o \
+		label.o \
 		moc_mainwindow.o
 DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/yarlen/Qt/5.5/gcc_64/mkspecs/common/unix.conf \
@@ -194,9 +196,11 @@ DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/yarlen/Qt/5.5/gcc_64/mkspecs/features/lex.prf \
 		../QZedGraph/QZedGraph.pro ../QZedGraph/mainwindow.h \
 		../QZedGraph/pointd.h \
-		../QZedGraph/qzedenums.h ../QZedGraph/main.cpp \
+		../QZedGraph/qzedenums.h \
+		../QZedGraph/label.h ../QZedGraph/main.cpp \
 		../QZedGraph/mainwindow.cpp \
-		../QZedGraph/pointd.cpp
+		../QZedGraph/pointd.cpp \
+		../QZedGraph/label.cpp
 QMAKE_TARGET  = QZedGraph
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = QZedGraph
@@ -524,8 +528,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedenums.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QZedGraph/main.cpp ../QZedGraph/mainwindow.cpp ../QZedGraph/pointd.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedenums.h ../QZedGraph/label.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QZedGraph/main.cpp ../QZedGraph/mainwindow.cpp ../QZedGraph/pointd.cpp ../QZedGraph/label.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QZedGraph/mainwindow.ui $(DISTDIR)/
 
 
@@ -944,6 +948,9 @@ mainwindow.o: ../QZedGraph/mainwindow.cpp ../QZedGraph/mainwindow.h \
 
 pointd.o: ../QZedGraph/pointd.cpp ../QZedGraph/pointd.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pointd.o ../QZedGraph/pointd.cpp
+
+label.o: ../QZedGraph/label.cpp ../QZedGraph/label.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o label.o ../QZedGraph/label.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
