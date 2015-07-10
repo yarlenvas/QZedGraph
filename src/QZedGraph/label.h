@@ -20,7 +20,7 @@ private:
 public:
     Label();
 
-    Label( QString text, QString fontFamily, int fontSize, QColor* color, bool isBold,bool isItalic, bool isUnderline );
+    Label( QString text, QString fontFamily, int fontSize, QColor* color, bool isBold,bool isItalic, bool isUnderline);
 
     Label( Label* rhs );
 

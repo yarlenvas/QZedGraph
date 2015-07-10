@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     pointd.cpp \
-    label.cpp
+    label.cpp \
+    margin.cpp \
+    margindefaults.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
     qzedenums.h \
-    label.h
+    label.h \
+    margin.h \
+    margindefaults.h
 
 FORMS    += mainwindow.ui
