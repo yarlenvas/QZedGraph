@@ -30,7 +30,7 @@ Fill::Fill()
     Init();
 }
 
-Fill::Fill(QColor *color, QBrush *brush, FillType::FillType type)
+Fill::Fill(QColor* color, QBrush* brush, FillType::FillType type)
 {
     Init();
     _color = color;
@@ -38,7 +38,7 @@ Fill::Fill(QColor *color, QBrush *brush, FillType::FillType type)
     _type = type;
 }
 
-Fill::Fill(QColor *color)
+Fill::Fill(QColor* color)
 {
 
     Init();
