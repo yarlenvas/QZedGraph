@@ -52,7 +52,7 @@ Margin::Margin()
     _right = QZedGraph::MarginDefaults::Right;
     _top = QZedGraph::MarginDefaults::Top;
     _bottom = QZedGraph::MarginDefaults::Bottom;
-
+    
 }
 
 }

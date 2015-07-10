@@ -23,6 +23,14 @@ private:
 
 public:
     Margin();
+    float left() const;
+    void setLeft(float left);
+    float right() const;
+    void setRight(float right);
+    float top() const;
+    void setTop(float top);
+    float bottom() const;
+    void setBottom(float bottom);
 };
 
 
