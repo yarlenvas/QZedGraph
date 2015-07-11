@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     margindefaults.cpp \
     fill.cpp \
     linebase.cpp \
-    line.cpp
+    line.cpp \
+    symbol.cpp \
+    border.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -30,6 +32,8 @@ HEADERS  += mainwindow.h \
     margindefaults.h \
     fill.h \
     linebase.h \
-    line.h
+    line.h \
+    symbol.h \
+    border.h
 
 FORMS    += mainwindow.ui

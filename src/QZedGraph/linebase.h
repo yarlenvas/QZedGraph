@@ -13,11 +13,7 @@ class LineBase
 
 private:
 
-    /// <summary>
-    /// Private field that stores the pen width for this line.
-    /// Use the public property <see cref="Width"/> to access this value.
-    /// </summary>
-    float _width;
+
     /// <summary>
     /// Private field that stores the <see cref="DashStyle"/> for this
     /// line.  Use the public
@@ -35,11 +31,6 @@ private:
     /// </summary>
     float _dashOff;
 
-    /// <summary>
-    /// Private field that stores the visibility of this line.  Use the public
-    /// property <see cref="IsVisible"/> to access this value.
-    /// </summary>
-    bool _isVisible;
 
     /// <summary>
     /// private field that determines if the line is drawn using
@@ -70,7 +61,8 @@ protected:
     /// still be shown).
     /// </summary>
     QColor* _color;
-
+    float _width;
+    bool _isVisible;
     void Init();
 
 public:
