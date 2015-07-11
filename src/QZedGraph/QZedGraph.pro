@@ -22,7 +22,11 @@ SOURCES += main.cpp\
     linebase.cpp \
     line.cpp \
     symbol.cpp \
-    border.cpp
+    border.cpp \
+    link.cpp \
+    minortic.cpp \
+    majortic.cpp \
+    pointpairbase.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -34,6 +38,10 @@ HEADERS  += mainwindow.h \
     linebase.h \
     line.h \
     symbol.h \
-    border.h
+    border.h \
+    link.h \
+    minortic.h \
+    majortic.h \
+    pointpairbase.h
 
 FORMS    += mainwindow.ui
