@@ -34,6 +34,10 @@ public:
 
 
     PointPairBase();
+
+    PointPairBase(double& x, double& y);
+
+
 };
 
 }

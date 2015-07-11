@@ -26,7 +26,10 @@ SOURCES += main.cpp\
     link.cpp \
     minortic.cpp \
     majortic.cpp \
-    pointpairbase.cpp
+    pointpairbase.cpp \
+    pointpair.cpp \
+    pointpairlist.cpp \
+    curveitem.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -42,6 +45,9 @@ HEADERS  += mainwindow.h \
     link.h \
     minortic.h \
     majortic.h \
-    pointpairbase.h
+    pointpairbase.h \
+    pointpair.h \
+    pointpairlist.h \
+    curveitem.h
 
 FORMS    += mainwindow.ui
