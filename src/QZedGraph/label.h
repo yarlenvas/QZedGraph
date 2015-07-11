@@ -4,7 +4,7 @@
 #include <QFontInfo>
 #include <QColor>
 
-namespace QZedGrap
+namespace QZedGraph
 {
 
 class Label

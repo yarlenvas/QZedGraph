@@ -1,6 +1,6 @@
 #include "label.h"
 
-namespace QZedGrap
+namespace QZedGraph
 {
 
 
@@ -34,7 +34,7 @@ Label::Label(QString text, QString fontFamily, int fontSize, QColor* color, bool
 }
 
 
-Label::Label(QZedGrap::Label* rhs )
+Label::Label(Label* rhs )
 {
     if (rhs->Text() != NULL)
     {

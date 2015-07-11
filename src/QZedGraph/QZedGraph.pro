@@ -29,7 +29,11 @@ SOURCES += main.cpp\
     pointpairbase.cpp \
     pointpair.cpp \
     pointpairlist.cpp \
-    curveitem.cpp
+    curveitem.cpp \
+    lineitem.cpp \
+    panebase.cpp \
+    graphpane.cpp \
+    zedgraphcontrol.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -48,6 +52,10 @@ HEADERS  += mainwindow.h \
     pointpairbase.h \
     pointpair.h \
     pointpairlist.h \
-    curveitem.h
+    curveitem.h \
+    lineitem.h \
+    panebase.h \
+    graphpane.h \
+    zedgraphcontrol.h
 
 FORMS    += mainwindow.ui

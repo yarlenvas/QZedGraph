@@ -3,6 +3,8 @@
 
 #include "qzedenums.h"
 
+#include "zedgraphcontrol.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,6 +14,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QZedAxisTypes::AxisType axType = QZedAxisTypes::Linear;
 
     ui->setupUi(this);
+
+
+    ZedGraphControl* chartControl = new ZedGraphControl(ui->centralWidget);
+
+
+
 }
 
 MainWindow::~MainWindow()
