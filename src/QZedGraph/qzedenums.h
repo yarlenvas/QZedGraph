@@ -211,7 +211,7 @@ enum SymbolType
     /// down. </summary>
     TriangleDown,
     /// <summary>
-    /// Horizontal dash <see cref="ZedGraph.Symbol"/>.  This symbol cannot be
+    /// Horizontal hh <see cref="ZedGraph.Symbol"/>.  This symbol cannot be
     /// filled since it has no outline.
     /// </summary>
     HDash,

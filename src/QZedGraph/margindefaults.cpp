@@ -1,15 +1,23 @@
 #include "margindefaults.h"
 
 
-QZedGraph::MarginDefaults::MarginDefaults()
+
+namespace QZedGraph {
+
+MarginDefaults::MarginDefaults()
 {
 
 }
 
-const float QZedGraph::MarginDefaults::Bottom = 10.0F;
-const float QZedGraph::MarginDefaults::Left = 10.0F;
-const float QZedGraph::MarginDefaults::Right = 10.0F;
-const float QZedGraph::MarginDefaults::Top = 10.0F;
+const float MarginDefaults::Bottom = 10.0F;
+const float MarginDefaults::Left = 10.0F;
+const float MarginDefaults::Right = 10.0F;
+const float MarginDefaults::Top = 10.0F;
+
+
+
+}
+
 
 
 

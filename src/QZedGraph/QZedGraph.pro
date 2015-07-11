@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     label.cpp \
     margin.cpp \
     margindefaults.cpp \
-    fill.cpp
+    fill.cpp \
+    linebase.cpp \
+    line.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -26,6 +28,8 @@ HEADERS  += mainwindow.h \
     label.h \
     margin.h \
     margindefaults.h \
-    fill.h
+    fill.h \
+    linebase.h \
+    line.h
 
 FORMS    += mainwindow.ui

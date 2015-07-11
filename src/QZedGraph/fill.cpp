@@ -4,6 +4,16 @@
 namespace QZedGraph
 {
 
+
+FillType::FillType Fill::type() const
+{
+    return _type;
+}
+
+void Fill::setType(const FillType::FillType &type)
+{
+    _type = type;
+}
 void Fill::Init()
 {
     _color = new QColor(255,255,255);
@@ -25,15 +35,15 @@ void Fill::Init()
     //    _wrapMode = WrapMode.Tile;
 }
 
-Fill::Fill()
+Fill::Fill(const QColor &color1, const QColor &color2)
 {
     Init();
 }
 
-Fill::Fill(QColor* color, QBrush* brush, FillType::FillType type)
+Fill::Fill(const QColor& color, QBrush* brush, FillType::FillType type)
 {
     Init();
-    _color = color;
+    _color = new QColor(color);
     _brush = brush;
     _type = type;
 }

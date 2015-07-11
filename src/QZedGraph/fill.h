@@ -135,8 +135,12 @@ private:
 
 public:
     Fill();
-    Fill( QColor* color, QBrush* brush, FillType::FillType type );
+    Fill( const QColor& color, QBrush* brush, FillType::FillType type );
     Fill( QColor* color );
+    Fill( const QColor& color1,const QColor& color2 );
+
+    FillType::FillType type() const;
+    void setType(const FillType::FillType &type);
 };
 
 }
