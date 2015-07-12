@@ -19,10 +19,10 @@ Label::Label()
 
 }
 
-Label::Label(QString text, QString fontFamily, int fontSize, QColor* color, bool isBold, bool isItalic, bool isUnderline)
+Label::Label(const QString& text, QString fontFamily, int fontSize, QColor* color, bool isBold, bool isItalic, bool isUnderline)
 {
 
-    _text = ( text  == NULL ) ? QString() : text;
+    _text = ( text  == NULL ) ? new QString() : new QString(text);
 
     _fontSpec = new QFont(fontFamily, fontSize, -1, isItalic);//new FontSpec( fontFamily, fontSize, color, isBold, isItalic, isUnderline );
     _fontSpec->setBold(isBold);
@@ -33,38 +33,13 @@ Label::Label(QString text, QString fontFamily, int fontSize, QColor* color, bool
 
 }
 
-
-Label::Label(Label* rhs )
+Label::Label(const QString& text, QFont *fontSpec)
 {
-    if (rhs->Text() != NULL)
-    {
-       this->Text(rhs->_text);
-    }
-    else
-    {
-        _text = QString();
-    }
+    _text = (text == NULL) ? new QString() : new QString(text);
 
-    this->setIsVisible(rhs->_isVisible);
+    _fontSpec = fontSpec;
 
-
-    if ( rhs->fontSpec() != NULL )
-    {
-        _fontSpec = rhs->_fontSpec;
-    }else
-    {
-        _fontSpec = NULL;
-    }
-
-    if (rhs->_color != NULL)
-    {
-        this->_color = rhs->_color;
-
-    }else
-    {
-
-     this->_color = NULL;
-    }
+    _isVisible = true;
 
 }
 
@@ -82,16 +57,16 @@ void Label::setIsVisible(bool isVisible)
 
 
 
-QString Label::Text()
+QString* Label::Text()
 {
 
     return this->_text;
 }
 
-void Label::Text(QString value)
+void Label::Text(const QString& value)
 {
 
-    this->_text = value;
+    this->_text = new QString(value);
 }
 
 }

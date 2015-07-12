@@ -4,6 +4,26 @@
 
 namespace QZedGraph {
 
+
+bool LineBase::isVisible() const
+{
+    return _isVisible;
+}
+
+void LineBase::setIsVisible(bool isVisible)
+{
+    _isVisible = isVisible;
+}
+
+float LineBase::width() const
+{
+    return _width;
+}
+
+void LineBase::setWidth(float width)
+{
+    _width = width;
+}
 void LineBase::Init()
 {
     _width = 1.0F;

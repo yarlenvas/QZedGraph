@@ -20,7 +20,8 @@ Line::Line(QColor *color)
     if(color == NULL)
     {
         _color = new QColor(Qt::red);
-    }else {
+    }else
+    {
         _color = color;
     }
 

@@ -68,6 +68,10 @@ protected:
 public:
     LineBase();
     LineBase(const QColor& Color);
+    bool isVisible() const;
+    void setIsVisible(bool isVisible);
+    float width() const;
+    void setWidth(float width);
 };
 
 }

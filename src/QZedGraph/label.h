@@ -11,7 +11,7 @@ class Label
 {
 private:
 
-    QString _text;
+    QString* _text;
     QFont* _fontSpec;
     QColor* _color;
     bool _isVisible;
@@ -20,14 +20,17 @@ private:
 public:
     Label();
 
-    Label( QString text, QString fontFamily, int fontSize, QColor* color, bool isBold,bool isItalic, bool isUnderline);
-
-    Label( Label* rhs );
-
-    QString Text();
+    Label(const QString& text, QString fontFamily, int fontSize, QColor* color,
+           bool isBold,bool isItalic, bool isUnderline);
 
 
-    void Text(QString value);
+    Label( const QString& text, QFont* fontSpec = NULL );
+
+
+    QString* Text();
+
+
+    void Text(const QString& value);
 
 
     bool isVisible() const;

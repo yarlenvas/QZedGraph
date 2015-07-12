@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <zedgraphcontrol.h>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QZedGraph::ZedGraphControl* z1;
+
+    void loadData();
 };
 
 #endif // MAINWINDOW_H

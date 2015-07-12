@@ -33,7 +33,9 @@ SOURCES += main.cpp\
     lineitem.cpp \
     panebase.cpp \
     graphpane.cpp \
-    zedgraphcontrol.cpp
+    zedgraphcontrol.cpp \
+    gaplabel.cpp \
+    curvelist.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -56,6 +58,8 @@ HEADERS  += mainwindow.h \
     lineitem.h \
     panebase.h \
     graphpane.h \
-    zedgraphcontrol.h
+    zedgraphcontrol.h \
+    gaplabel.h \
+    curvelist.h
 
 FORMS    += mainwindow.ui

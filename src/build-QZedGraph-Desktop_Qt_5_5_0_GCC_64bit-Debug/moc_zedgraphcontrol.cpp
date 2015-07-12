@@ -18,25 +18,25 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_ZedGraphControl_t {
+struct qt_meta_stringdata_QZedGraph__ZedGraphControl_t {
     QByteArrayData data[1];
-    char stringdata0[16];
+    char stringdata0[27];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_ZedGraphControl_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_QZedGraph__ZedGraphControl_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_ZedGraphControl_t qt_meta_stringdata_ZedGraphControl = {
+static const qt_meta_stringdata_QZedGraph__ZedGraphControl_t qt_meta_stringdata_QZedGraph__ZedGraphControl = {
     {
-QT_MOC_LITERAL(0, 0, 15) // "ZedGraphControl"
+QT_MOC_LITERAL(0, 0, 26) // "QZedGraph::ZedGraphControl"
 
     },
-    "ZedGraphControl"
+    "QZedGraph::ZedGraphControl"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_ZedGraphControl[] = {
+static const uint qt_meta_data_QZedGraph__ZedGraphControl[] = {
 
  // content:
        7,       // revision
@@ -52,7 +52,7 @@ static const uint qt_meta_data_ZedGraphControl[] = {
        0        // eod
 };
 
-void ZedGraphControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void QZedGraph::ZedGraphControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -60,26 +60,26 @@ void ZedGraphControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     Q_UNUSED(_a);
 }
 
-const QMetaObject ZedGraphControl::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_ZedGraphControl.data,
-      qt_meta_data_ZedGraphControl,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject QZedGraph::ZedGraphControl::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_QZedGraph__ZedGraphControl.data,
+      qt_meta_data_QZedGraph__ZedGraphControl,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *ZedGraphControl::metaObject() const
+const QMetaObject *QZedGraph::ZedGraphControl::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ZedGraphControl::qt_metacast(const char *_clname)
+void *QZedGraph::ZedGraphControl::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_ZedGraphControl.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_QZedGraph__ZedGraphControl.stringdata0))
         return static_cast<void*>(const_cast< ZedGraphControl*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int ZedGraphControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int QZedGraph::ZedGraphControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
