@@ -16,6 +16,10 @@ private:
 
     GraphPane* _graphPane;
 
+protected:
+    void paintEvent(QPaintEvent* pe);
+
+
 public:
     explicit ZedGraphControl(QWidget *parent = 0);
 
@@ -27,6 +31,7 @@ public:
 
     void AxisChange();
 
+    void Invalidate();
 
 signals:
 

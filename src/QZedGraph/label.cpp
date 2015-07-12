@@ -14,6 +14,16 @@ void Label::setFontSpec(QFont* fontSpec)
 {
     _fontSpec = fontSpec;
 }
+
+QString *Label::text() const
+{
+    return _text;
+}
+
+void Label::setText(QString *text)
+{
+    _text = text;
+}
 Label::Label()
 {
 
@@ -55,19 +65,6 @@ void Label::setIsVisible(bool isVisible)
 }
 
 
-
-
-QString* Label::Text()
-{
-
-    return this->_text;
-}
-
-void Label::Text(const QString& value)
-{
-
-    this->_text = new QString(value);
-}
 
 }
 

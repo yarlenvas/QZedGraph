@@ -4,7 +4,7 @@
 
 #include <math.h>
 #include "qzedenums.h"
-
+#include <curvelist.h>
 #include <zedgraphcontrol.h>
 #include <vector>
 
@@ -58,6 +58,8 @@ void MainWindow::loadData()
     z1->graphPane()->AddCurve( "Sine Wave", x, y, Qt::red, SymbolType::Square );
     z1->graphPane()->curveList()->at(0)->AddPoint(1, 1);
     z1->AxisChange();
-//    z1.Invalidate();
+    z1->Invalidate();
+
+
 
 }

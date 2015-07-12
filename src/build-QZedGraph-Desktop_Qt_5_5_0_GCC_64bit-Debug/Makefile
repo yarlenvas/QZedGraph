@@ -71,7 +71,16 @@ SOURCES       = ../QZedGraph/main.cpp \
 		../QZedGraph/graphpane.cpp \
 		../QZedGraph/zedgraphcontrol.cpp \
 		../QZedGraph/gaplabel.cpp \
-		../QZedGraph/curvelist.cpp moc_mainwindow.cpp \
+		../QZedGraph/curvelist.cpp \
+		../QZedGraph/axis.cpp \
+		../QZedGraph/xaxis.cpp \
+		../QZedGraph/x2axis.cpp \
+		../QZedGraph/yaxis.cpp \
+		../QZedGraph/y2axis.cpp \
+		../QZedGraph/scale.cpp \
+		../QZedGraph/axislabel.cpp \
+		../QZedGraph/yaxislist.cpp \
+		../QZedGraph/chart.cpp moc_mainwindow.cpp \
 		moc_zedgraphcontrol.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
@@ -97,6 +106,15 @@ OBJECTS       = main.o \
 		zedgraphcontrol.o \
 		gaplabel.o \
 		curvelist.o \
+		axis.o \
+		xaxis.o \
+		x2axis.o \
+		yaxis.o \
+		y2axis.o \
+		scale.o \
+		axislabel.o \
+		yaxislist.o \
+		chart.o \
 		moc_mainwindow.o \
 		moc_zedgraphcontrol.o
 DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
@@ -259,7 +277,16 @@ DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		../QZedGraph/graphpane.h \
 		../QZedGraph/zedgraphcontrol.h \
 		../QZedGraph/gaplabel.h \
-		../QZedGraph/curvelist.h ../QZedGraph/main.cpp \
+		../QZedGraph/curvelist.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxis.h \
+		../QZedGraph/y2axis.h \
+		../QZedGraph/scale.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/chart.h ../QZedGraph/main.cpp \
 		../QZedGraph/mainwindow.cpp \
 		../QZedGraph/pointd.cpp \
 		../QZedGraph/label.cpp \
@@ -282,7 +309,16 @@ DIST          = /home/yarlen/Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		../QZedGraph/graphpane.cpp \
 		../QZedGraph/zedgraphcontrol.cpp \
 		../QZedGraph/gaplabel.cpp \
-		../QZedGraph/curvelist.cpp
+		../QZedGraph/curvelist.cpp \
+		../QZedGraph/axis.cpp \
+		../QZedGraph/xaxis.cpp \
+		../QZedGraph/x2axis.cpp \
+		../QZedGraph/yaxis.cpp \
+		../QZedGraph/y2axis.cpp \
+		../QZedGraph/scale.cpp \
+		../QZedGraph/axislabel.cpp \
+		../QZedGraph/yaxislist.cpp \
+		../QZedGraph/chart.cpp
 QMAKE_TARGET  = QZedGraph
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = QZedGraph
@@ -610,8 +646,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedenums.h ../QZedGraph/label.h ../QZedGraph/margin.h ../QZedGraph/margindefaults.h ../QZedGraph/fill.h ../QZedGraph/linebase.h ../QZedGraph/line.h ../QZedGraph/symbol.h ../QZedGraph/border.h ../QZedGraph/link.h ../QZedGraph/minortic.h ../QZedGraph/majortic.h ../QZedGraph/pointpairbase.h ../QZedGraph/pointpair.h ../QZedGraph/pointpairlist.h ../QZedGraph/curveitem.h ../QZedGraph/lineitem.h ../QZedGraph/panebase.h ../QZedGraph/graphpane.h ../QZedGraph/zedgraphcontrol.h ../QZedGraph/gaplabel.h ../QZedGraph/curvelist.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QZedGraph/main.cpp ../QZedGraph/mainwindow.cpp ../QZedGraph/pointd.cpp ../QZedGraph/label.cpp ../QZedGraph/margin.cpp ../QZedGraph/margindefaults.cpp ../QZedGraph/fill.cpp ../QZedGraph/linebase.cpp ../QZedGraph/line.cpp ../QZedGraph/symbol.cpp ../QZedGraph/border.cpp ../QZedGraph/link.cpp ../QZedGraph/minortic.cpp ../QZedGraph/majortic.cpp ../QZedGraph/pointpairbase.cpp ../QZedGraph/pointpair.cpp ../QZedGraph/pointpairlist.cpp ../QZedGraph/curveitem.cpp ../QZedGraph/lineitem.cpp ../QZedGraph/panebase.cpp ../QZedGraph/graphpane.cpp ../QZedGraph/zedgraphcontrol.cpp ../QZedGraph/gaplabel.cpp ../QZedGraph/curvelist.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QZedGraph/mainwindow.h ../QZedGraph/pointd.h ../QZedGraph/qzedenums.h ../QZedGraph/label.h ../QZedGraph/margin.h ../QZedGraph/margindefaults.h ../QZedGraph/fill.h ../QZedGraph/linebase.h ../QZedGraph/line.h ../QZedGraph/symbol.h ../QZedGraph/border.h ../QZedGraph/link.h ../QZedGraph/minortic.h ../QZedGraph/majortic.h ../QZedGraph/pointpairbase.h ../QZedGraph/pointpair.h ../QZedGraph/pointpairlist.h ../QZedGraph/curveitem.h ../QZedGraph/lineitem.h ../QZedGraph/panebase.h ../QZedGraph/graphpane.h ../QZedGraph/zedgraphcontrol.h ../QZedGraph/gaplabel.h ../QZedGraph/curvelist.h ../QZedGraph/axis.h ../QZedGraph/xaxis.h ../QZedGraph/x2axis.h ../QZedGraph/yaxis.h ../QZedGraph/y2axis.h ../QZedGraph/scale.h ../QZedGraph/axislabel.h ../QZedGraph/yaxislist.h ../QZedGraph/chart.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QZedGraph/main.cpp ../QZedGraph/mainwindow.cpp ../QZedGraph/pointd.cpp ../QZedGraph/label.cpp ../QZedGraph/margin.cpp ../QZedGraph/margindefaults.cpp ../QZedGraph/fill.cpp ../QZedGraph/linebase.cpp ../QZedGraph/line.cpp ../QZedGraph/symbol.cpp ../QZedGraph/border.cpp ../QZedGraph/link.cpp ../QZedGraph/minortic.cpp ../QZedGraph/majortic.cpp ../QZedGraph/pointpairbase.cpp ../QZedGraph/pointpair.cpp ../QZedGraph/pointpairlist.cpp ../QZedGraph/curveitem.cpp ../QZedGraph/lineitem.cpp ../QZedGraph/panebase.cpp ../QZedGraph/graphpane.cpp ../QZedGraph/zedgraphcontrol.cpp ../QZedGraph/gaplabel.cpp ../QZedGraph/curvelist.cpp ../QZedGraph/axis.cpp ../QZedGraph/xaxis.cpp ../QZedGraph/x2axis.cpp ../QZedGraph/yaxis.cpp ../QZedGraph/y2axis.cpp ../QZedGraph/scale.cpp ../QZedGraph/axislabel.cpp ../QZedGraph/yaxislist.cpp ../QZedGraph/chart.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QZedGraph/mainwindow.ui $(DISTDIR)/
 
 
@@ -757,11 +793,31 @@ moc_mainwindow.cpp: /home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QMainWindow \
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
 		../QZedGraph/mainwindow.h
 	/home/yarlen/Qt/5.5/gcc_64/bin/moc $(DEFINES) -I/home/yarlen/Qt/5.5/gcc_64/mkspecs/linux-g++ -I/home/yarlen/Documentos/QT/QZedGraph/src/QZedGraph -I/home/yarlen/Qt/5.5/gcc_64/include -I/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets -I/home/yarlen/Qt/5.5/gcc_64/include/QtGui -I/home/yarlen/Qt/5.5/gcc_64/include/QtCore -I. ../QZedGraph/mainwindow.h -o moc_mainwindow.cpp
 
@@ -878,11 +934,31 @@ moc_zedgraphcontrol.cpp: /home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QWidget \
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
 		../QZedGraph/zedgraphcontrol.h
 	/home/yarlen/Qt/5.5/gcc_64/bin/moc $(DEFINES) -I/home/yarlen/Qt/5.5/gcc_64/mkspecs/linux-g++ -I/home/yarlen/Documentos/QT/QZedGraph/src/QZedGraph -I/home/yarlen/Qt/5.5/gcc_64/include -I/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets -I/home/yarlen/Qt/5.5/gcc_64/include/QtGui -I/home/yarlen/Qt/5.5/gcc_64/include/QtCore -I. ../QZedGraph/zedgraphcontrol.h -o moc_zedgraphcontrol.cpp
 
@@ -1023,11 +1099,31 @@ main.o: ../QZedGraph/main.cpp ../QZedGraph/mainwindow.h \
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QApplication \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qapplication.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1156,11 +1252,31 @@ mainwindow.o: ../QZedGraph/mainwindow.cpp ../QZedGraph/mainwindow.h \
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
 		ui_mainwindow.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QVariant \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QAction \
@@ -1198,7 +1314,8 @@ mainwindow.o: ../QZedGraph/mainwindow.cpp ../QZedGraph/mainwindow.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QStatusBar \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qstatusbar.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QToolBar \
-		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qtoolbar.h
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qtoolbar.h \
+		../QZedGraph/curvelist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../QZedGraph/mainwindow.cpp
 
 pointd.o: ../QZedGraph/pointd.cpp ../QZedGraph/pointd.h
@@ -2114,9 +2231,9 @@ curveitem.o: ../QZedGraph/curveitem.cpp ../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o curveitem.o ../QZedGraph/curveitem.cpp
@@ -2191,12 +2308,42 @@ lineitem.o: ../QZedGraph/lineitem.cpp ../QZedGraph/lineitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
 		../QZedGraph/link.h \
-		../QZedGraph/qzedenums.h
+		../QZedGraph/qzedenums.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qline.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixmap.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lineitem.o ../QZedGraph/lineitem.cpp
 
 panebase.o: ../QZedGraph/panebase.cpp ../QZedGraph/panebase.h \
@@ -2344,11 +2491,50 @@ graphpane.o: ../QZedGraph/graphpane.cpp ../QZedGraph/graphpane.h \
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
-		../QZedGraph/link.h
+		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qline.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixmap.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
+		../QZedGraph/curvelist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o graphpane.o ../QZedGraph/graphpane.cpp
 
 zedgraphcontrol.o: ../QZedGraph/zedgraphcontrol.cpp ../QZedGraph/zedgraphcontrol.h \
@@ -2465,11 +2651,34 @@ zedgraphcontrol.o: ../QZedGraph/zedgraphcontrol.cpp ../QZedGraph/zedgraphcontrol
 		../QZedGraph/lineitem.h \
 		../QZedGraph/curveitem.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
-		../QZedGraph/link.h
+		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPainter \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainter.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtextoption.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o zedgraphcontrol.o ../QZedGraph/zedgraphcontrol.cpp
 
 gaplabel.o: ../QZedGraph/gaplabel.cpp ../QZedGraph/gaplabel.h \
@@ -2613,11 +2822,794 @@ curvelist.o: ../QZedGraph/curvelist.cpp ../QZedGraph/curvelist.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
 		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h \
-		../QZedGraph/pointpairlist.h \
 		../QZedGraph/pointpair.h \
 		../QZedGraph/pointpairbase.h \
-		../QZedGraph/link.h
+		../QZedGraph/pointpairlist.h \
+		../QZedGraph/link.h \
+		../QZedGraph/scale.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		../QZedGraph/graphpane.h \
+		../QZedGraph/panebase.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/lineitem.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qline.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixmap.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o curvelist.o ../QZedGraph/curvelist.cpp
+
+axis.o: ../QZedGraph/axis.cpp ../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o axis.o ../QZedGraph/axis.cpp
+
+xaxis.o: ../QZedGraph/xaxis.cpp ../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xaxis.o ../QZedGraph/xaxis.cpp
+
+x2axis.o: ../QZedGraph/x2axis.cpp ../QZedGraph/x2axis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o x2axis.o ../QZedGraph/x2axis.cpp
+
+yaxis.o: ../QZedGraph/yaxis.cpp ../QZedGraph/yaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o yaxis.o ../QZedGraph/yaxis.cpp
+
+y2axis.o: ../QZedGraph/y2axis.cpp ../QZedGraph/y2axis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o y2axis.o ../QZedGraph/y2axis.cpp
+
+scale.o: ../QZedGraph/scale.cpp ../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/graphpane.h \
+		../QZedGraph/panebase.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h \
+		../QZedGraph/lineitem.h \
+		../QZedGraph/curveitem.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QObject \
+		../QZedGraph/pointpair.h \
+		../QZedGraph/pointpairbase.h \
+		../QZedGraph/pointpairlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
+		../QZedGraph/link.h \
+		../QZedGraph/line.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qline.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixmap.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/symbol.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../QZedGraph/border.h \
+		../QZedGraph/xaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/x2axis.h \
+		../QZedGraph/yaxislist.h \
+		../QZedGraph/yaxis.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scale.o ../QZedGraph/scale.cpp
+
+axislabel.o: ../QZedGraph/axislabel.cpp ../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o axislabel.o ../QZedGraph/axislabel.cpp
+
+yaxislist.o: ../QZedGraph/yaxislist.cpp ../QZedGraph/yaxislist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QList \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		../QZedGraph/yaxis.h \
+		../QZedGraph/axis.h \
+		../QZedGraph/scale.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QString \
+		../QZedGraph/qzedenums.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFont \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		../QZedGraph/axislabel.h \
+		../QZedGraph/gaplabel.h \
+		../QZedGraph/label.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QFontInfo \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o yaxislist.o ../QZedGraph/yaxislist.cpp
+
+chart.o: ../QZedGraph/chart.cpp ../QZedGraph/chart.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/QRectF \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpoint.h \
+		../QZedGraph/fill.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QColor \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBrush \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qline.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QBitmap \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qbitmap.h \
+		../QZedGraph/qzedenums.h \
+		../QZedGraph/border.h \
+		../QZedGraph/linebase.h \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/QPen \
+		/home/yarlen/Qt/5.5/gcc_64/include/QtGui/qpen.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chart.o ../QZedGraph/chart.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

@@ -45,6 +45,8 @@ void ZedGraphControl::Invalidate()
 
 void ZedGraphControl::paintEvent(QPaintEvent *pe)
 {
+    
+    
       QPainter painter(this);
      painter.drawText(QRect(20,20,200,200), "HOLA MUNDO");
      painter.end();

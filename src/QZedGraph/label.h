@@ -27,11 +27,6 @@ public:
     Label( const QString& text, QFont* fontSpec = NULL );
 
 
-    QString* Text();
-
-
-    void Text(const QString& value);
-
 
     bool isVisible() const;
     void setIsVisible(bool isVisible);
@@ -39,6 +34,8 @@ public:
 
     QFont* fontSpec() const;
     void setFontSpec(QFont* fontSpec);
+    QString *text() const;
+    void setText(QString *text);
 };
 
 }

@@ -35,7 +35,16 @@ SOURCES += main.cpp\
     graphpane.cpp \
     zedgraphcontrol.cpp \
     gaplabel.cpp \
-    curvelist.cpp
+    curvelist.cpp \
+    axis.cpp \
+    xaxis.cpp \
+    x2axis.cpp \
+    yaxis.cpp \
+    y2axis.cpp \
+    scale.cpp \
+    axislabel.cpp \
+    yaxislist.cpp \
+    chart.cpp
 
 HEADERS  += mainwindow.h \
     pointd.h \
@@ -60,6 +69,15 @@ HEADERS  += mainwindow.h \
     graphpane.h \
     zedgraphcontrol.h \
     gaplabel.h \
-    curvelist.h
+    curvelist.h \
+    axis.h \
+    xaxis.h \
+    x2axis.h \
+    yaxis.h \
+    y2axis.h \
+    scale.h \
+    axislabel.h \
+    yaxislist.h \
+    chart.h
 
 FORMS    += mainwindow.ui
