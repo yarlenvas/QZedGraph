@@ -43,23 +43,40 @@ void ZedGraphControl::Invalidate()
 
 
 
+
+
 void ZedGraphControl::paintEvent(QPaintEvent *pe)
 {
-      QPainter painter(this);
-     painter.drawText(QRect(20,20,200,200), "HOLA MUNDO");
-     painter.end();
+
+    QWidget::paintEvent(pe);
+
+
+    QPainter* painter = new QPainter(this);
+
+
+    this->_graphPane->Draw(painter);
+
+
+
+
+
+    //painter->drawText(QRect(20,20,200,200), "HOLA MUNDO");
+    painter->end();
+
 }
+
+
 
 ZedGraphControl::ZedGraphControl(QWidget *parent) : QWidget(parent)
 {
     QPalette Pal(palette());
 
+    this->resize(400,400);
 
     QRectF* rect = new QRectF( 0, 0, this->width(), this->height() );
-
     this->_graphPane = new GraphPane(rect, "TITLE", "XAXIS", "YAXIS");
 
-    Pal.setColor(QPalette::Background, Qt::white);
+    //Pal.setColor(QPalette::Background, Qt::white);
     this->setAutoFillBackground(true);
     this->setPalette(Pal);
     this->show();

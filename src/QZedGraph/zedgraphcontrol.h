@@ -33,6 +33,8 @@ public:
 
     void Invalidate();
 
+
+
 signals:
 
 public slots:

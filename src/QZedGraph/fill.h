@@ -4,8 +4,11 @@
 #include <QColor>
 #include <QBrush>
 #include <QBitmap>
+#include <QRectF>
+#include <QPainter>
 #include "qzedenums.h"
-
+#include <pointpair.h>
+#include <QBrush>
 namespace QZedGraph
 {
 /// <summary>
@@ -133,14 +136,22 @@ private:
 
     void Init();
 
+    QBrush* MakeBrush( QRectF* rect, PointPair* dataValue );
+
+
 public:
     Fill();
     Fill( const QColor& color, QBrush* brush, FillType::FillType type );
-    Fill( QColor* color );
+    Fill( const QColor& color );
     Fill( const QColor& color1,const QColor& color2 );
 
     FillType::FillType type() const;
     void setType(const FillType::FillType &type);
+
+
+    void Draw( QPainter* g, QRectF* rect, PointPair* pt );
+
+    void Draw( QPainter* g, QRectF* rect );
 };
 
 }

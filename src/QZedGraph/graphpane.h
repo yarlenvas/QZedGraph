@@ -63,10 +63,11 @@ public:
                   SymbolType::SymbolType symbolType);
 
 
-
     ///***METHODS***///
 
     void AxisChange(QPainter* g);
+
+    void Draw(QPainter* g);
 
 
     CurveList *curveList() const;
@@ -76,7 +77,6 @@ public:
     void setX2Axis(X2Axis *x2Axis);
 
     float CalcScaleFactor();
-
 
 
 };

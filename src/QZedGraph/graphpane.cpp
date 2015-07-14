@@ -69,6 +69,7 @@ float GraphPane::CalcScaleFactor()
 
     return scaleFactor;
 }
+
 GraphPane::GraphPane()
 {
 
@@ -84,23 +85,23 @@ GraphPane::GraphPane(QRectF *rect, const QString &title, const QString &xTitle,
     _x2Axis = new X2Axis( "" );
 
     _yAxisList = new YAxisList();
-//    _y2AxisList = new Y2AxisList();
+    //    _y2AxisList = new Y2AxisList();
 
     _yAxisList->append(new YAxis( yTitle ) );
-//    _y2AxisList.Add( new Y2Axis( string.Empty ) );
+    //    _y2AxisList.Add( new Y2Axis( string.Empty ) );
 
     _curveList = new CurveList();
-//    _zoomStack = new ZoomStateStack();
+    //    _zoomStack = new ZoomStateStack();
 
-//    _isIgnoreInitial = Default.IsIgnoreInitial;
-//    _isBoundedRanges = Default.IsBoundedRanges;
-//    _isAlignGrids = false;
+    //    _isIgnoreInitial = Default.IsIgnoreInitial;
+    //    _isBoundedRanges = Default.IsBoundedRanges;
+    //    _isAlignGrids = false;
 
     _chart = new Chart();
 
-//    _barSettings = new BarSettings( this );
+    //    _barSettings = new BarSettings( this );
 
-//    _lineType = Default.LineType;
+    //    _lineType = Default.LineType;
 
 }
 
@@ -108,45 +109,45 @@ GraphPane::GraphPane(QRectF *rect, const QString &title, const QString &xTitle,
 void GraphPane::PickScale(QPainter *g, float scaleFactor)
 {
 
-        int maxTics = 0;
+    int maxTics = 0;
 
-        _xAxis->scale()->PickScale( this, g, scaleFactor );
-        _x2Axis->scale()->PickScale( this, g, scaleFactor );
+    _xAxis->scale()->PickScale( this, g, scaleFactor );
+    _x2Axis->scale()->PickScale( this, g, scaleFactor );
 
 
-       for(unsigned int i = 0; i < _yAxisList->length(); i++)
-       {
-           Axis* axis = _yAxisList->at(i);
-           axis->scale()->PickScale(this,g,scaleFactor);
-       }
+    for(unsigned int i = 0; i < _yAxisList->length(); i++)
+    {
+        Axis* axis = _yAxisList->at(i);
+        axis->scale()->PickScale(this,g,scaleFactor);
+    }
 
-//        foreach ( Axis axis in _yAxisList )
-//        {
-//            axis._scale.PickScale( this, g, scaleFactor );
-//            if ( axis._scale.MaxAuto )
-//            {
-//                int nTics = axis._scale.CalcNumTics();
-//                maxTics = nTics > maxTics ? nTics : maxTics;
-//            }
-//        }
-//        foreach ( Axis axis in _y2AxisList )
-//        {
-//            axis._scale.PickScale( this, g, scaleFactor );
-//            if ( axis._scale.MaxAuto )
-//            {
-//                int nTics = axis._scale.CalcNumTics();
-//                maxTics = nTics > maxTics ? nTics : maxTics;
-//            }
-//        }
+    //        foreach ( Axis axis in _yAxisList )
+    //        {
+    //            axis._scale.PickScale( this, g, scaleFactor );
+    //            if ( axis._scale.MaxAuto )
+    //            {
+    //                int nTics = axis._scale.CalcNumTics();
+    //                maxTics = nTics > maxTics ? nTics : maxTics;
+    //            }
+    //        }
+    //        foreach ( Axis axis in _y2AxisList )
+    //        {
+    //            axis._scale.PickScale( this, g, scaleFactor );
+    //            if ( axis._scale.MaxAuto )
+    //            {
+    //                int nTics = axis._scale.CalcNumTics();
+    //                maxTics = nTics > maxTics ? nTics : maxTics;
+    //            }
+    //        }
 
-//        if ( _isAlignGrids )
-//        {
-//            foreach ( Axis axis in _yAxisList )
-//                ForceNumTics( axis, maxTics );
+    //        if ( _isAlignGrids )
+    //        {
+    //            foreach ( Axis axis in _yAxisList )
+    //                ForceNumTics( axis, maxTics );
 
-//            foreach ( Axis axis in _y2AxisList )
-//                ForceNumTics( axis, maxTics );
-//        }
+    //            foreach ( Axis axis in _y2AxisList )
+    //                ForceNumTics( axis, maxTics );
+    //        }
 
 
 }
@@ -174,53 +175,59 @@ void GraphPane::AxisChange(QPainter *g)
 {
 
 
-                // Get the scale range of the data (all curves)
-                _curveList->GetRange(_isIgnoreInitial, _isBoundedRanges, this );
+    // Get the scale range of the data (all curves)
+    _curveList->GetRange(_isIgnoreInitial, _isBoundedRanges, this );
 
-                // Determine the scale factor
-                float scaleFactor = this->CalcScaleFactor();
+    // Determine the scale factor
+    float scaleFactor = this->CalcScaleFactor();
 
-//                // For pie charts, go ahead and turn off the axis displays if it's only pies
-//                if ( this.CurveList.IsPieOnly )
-//                {
-//                    //don't want to display axis or border if there's only pies
-//                    this.XAxis.IsVisible = false;
-//                    this.X2Axis.IsVisible = false;
-//                    this.YAxis.IsVisible = false;
-//                    this.Y2Axis.IsVisible = false;
-//                    _chart.Border.IsVisible = false;
-//                    //this.Legend.Position = LegendPos.TopCenter;
-//                }
+    //                // For pie charts, go ahead and turn off the axis displays if it's only pies
+    //                if ( this.CurveList.IsPieOnly )
+    //                {
+    //                    //don't want to display axis or border if there's only pies
+    //                    this.XAxis.IsVisible = false;
+    //                    this.X2Axis.IsVisible = false;
+    //                    this.YAxis.IsVisible = false;
+    //                    this.Y2Axis.IsVisible = false;
+    //                    _chart.Border.IsVisible = false;
+    //                    //this.Legend.Position = LegendPos.TopCenter;
+    //                }
 
-//                // Set the ClusterScaleWidth, if needed
-//                //_barSettings.CalcClusterScaleWidth();
-//                if ( _barSettings._clusterScaleWidthAuto )
-//                    _barSettings._clusterScaleWidth = 1.0;
+    //                // Set the ClusterScaleWidth, if needed
+    //                //_barSettings.CalcClusterScaleWidth();
+    //                if ( _barSettings._clusterScaleWidthAuto )
+    //                    _barSettings._clusterScaleWidth = 1.0;
 
-//                // if the ChartRect is not yet determined, then pick a scale based on a default ChartRect
-//                // size (using 75% of Rect -- code is in Axis.CalcMaxLabels() )
-//                // With the scale picked, call CalcChartRect() so calculate a real ChartRect
-//                // then let the scales re-calculate to make sure that the assumption was ok
-//                if ( _chart._isRectAuto )
-//                {
-//                    PickScale( g, scaleFactor );
+    //                // if the ChartRect is not yet determined, then pick a scale based on a default ChartRect
+    //                // size (using 75% of Rect -- code is in Axis.CalcMaxLabels() )
+    //                // With the scale picked, call CalcChartRect() so calculate a real ChartRect
+    //                // then let the scales re-calculate to make sure that the assumption was ok
+    //                if ( _chart._isRectAuto )
+    //                {
+    //                    PickScale( g, scaleFactor );
 
-//                    _chart._rect = CalcChartRect( g );
-//                    //this.pieRect = PieItem.CalcPieRect( g, this, scaleFactor, this.chartRect );
-//                }
+    //                    _chart._rect = CalcChartRect( g );
+    //                    //this.pieRect = PieItem.CalcPieRect( g, this, scaleFactor, this.chartRect );
+    //                }
 
-//                // Pick new scales based on the range
-                 PickScale( g, scaleFactor );
+    //                // Pick new scales based on the range
+    PickScale( g, scaleFactor );
 
-//                // Set the ClusterScaleWidth, if needed
-//                _barSettings.CalcClusterScaleWidth();
+    //                // Set the ClusterScaleWidth, if needed
+    //                _barSettings.CalcClusterScaleWidth();
 
-//                // Trigger the AxisChangeEvent
-//                if ( this.AxisChangeEvent != null )
-//                    this.AxisChangeEvent( this );
+    //                // Trigger the AxisChangeEvent
+    //                if ( this.AxisChangeEvent != null )
+    //                    this.AxisChangeEvent( this );
 
 
 }
+
+void GraphPane::Draw(QPainter *g)
+{
+    PaneBase::Draw(g);
+}
+
 
 }
 
